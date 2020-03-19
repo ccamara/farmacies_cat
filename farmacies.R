@@ -9,6 +9,7 @@ farmacies_gc <- read.csv("https://analisi.transparenciacatalunya.cat/resource/8g
 
 
 df_combined <- farmacies_cc0 %>% 
-  left_join(farmacies_gc, by = "nom_farmacia")
+  left_join(farmacies_gc, by = "nom_farmacia") %>% 
+  filter(!is.na(localitzacio))
 
 write.csv(df_combined, file = "data/output/farmacies_cat.csv")
